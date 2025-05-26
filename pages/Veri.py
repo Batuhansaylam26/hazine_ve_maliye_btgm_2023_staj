@@ -4,6 +4,7 @@ import pandas
 import plotly.express as px
 import plotly.graph_objects as go
 import dash_bootstrap_components as dbc
+!pip install dash-bootstrap-templates
 from dash_bootstrap_templates import load_figure_template
 import seaborn as sn
 import numpy as np
