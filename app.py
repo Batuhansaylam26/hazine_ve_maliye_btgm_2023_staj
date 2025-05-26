@@ -2,7 +2,7 @@ from dash import Dash, html, dcc,Input,Output,callback
 import dash
 import dash_bootstrap_components as dbc
 
-app = Dash(__name__, use_pages=True,pages_folder="/home/batuhansaylam/Desktop/hazine_maliye_bakanl-_btgm_staj_2023/pages")
+app = Dash(__name__, use_pages=True,pages_folder="/home/batuhansaylam/Desktop/hazine_ve_maliye_btgm_2023_staj/pages")
 
 
 

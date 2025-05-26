@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 import dash_bootstrap_components as dbc
 from dash_bootstrap_templates import load_figure_template
 
-data=pandas.read_csv("/home/batuhansaylam/Desktop/hazine_maliye_bakanl-_btgm_staj_2023/data/soci_econ_country_profiles.csv")
+data=pandas.read_csv("/home/batuhansaylam/Desktop/hazine_ve_maliye_btgm_2023_staj/data/soci_econ_country_profiles.csv")
 data1=pandas.read_csv("/home/batuhan-saylam/Downloads/HDR21-22_Composite_indices_complete_time_series.csv")
 data=data.merge(data1[["iso3","country"]],how="inner",on="country")
 

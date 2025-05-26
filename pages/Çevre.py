@@ -11,10 +11,10 @@ import plotly.figure_factory as ff
 from sklearn.linear_model import LinearRegression
 from plotly.subplots import make_subplots
 load_figure_template("slate")
-data=pandas.read_csv("/home/batuhansaylam/Desktop/hazine_maliye_bakanl-_btgm_staj_2023/data/soci_econ_country_profiles.csv")
-data1=pandas.read_csv("/home/batuhansaylam/Desktop/hazine_maliye_bakanl-_btgm_staj_2023/data/HDR21-22_Composite_indices_complete_time_series.csv")
+data=pandas.read_csv("/home/batuhansaylam/Desktop/hazine_ve_maliye_btgm_2023_staj/data/soci_econ_country_profiles.csv")
+data1=pandas.read_csv("/home/batuhansaylam/Desktop/hazine_ve_maliye_btgm_2023_staj/data/HDR21-22_Composite_indices_complete_time_series.csv")
 data=data.merge(data1[["iso3","country"]],how="inner",on="country")
-data11=pandas.read_csv("/home/batuhansaylam/Desktop/hazine_maliye_bakanl-_btgm_staj_2023/data/soci_econ_country_profiles.csv")
+data11=pandas.read_csv("/home/batuhansaylam/Desktop/hazine_ve_maliye_btgm_2023_staj/data/soci_econ_country_profiles.csv")
 
 dash.register_page(__name__, path='/enve')
 
