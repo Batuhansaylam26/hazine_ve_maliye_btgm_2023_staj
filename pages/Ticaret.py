@@ -78,9 +78,10 @@ fig.update_layout(
     paper_bgcolor='rgb(248, 248, 255)',
     plot_bgcolor='rgb(248, 248, 255)',
 )
-
+data["Economy: Agriculture (% of GVA)"] =  pandas.to_numeric(data["Economy: Agriculture (% of GVA)"], errors='coerce')
 data=data.groupby("Region")[["Economy: Agriculture (% of GVA)","Economy: Industry (% of GVA)","Economy: Services and other activity (% of GVA)"]].sum().reset_index()
-x=data.sum(axis=1).tolist()
+
+x=data[["Economy: Agriculture (% of GVA)","Economy: Industry (% of GVA)","Economy: Services and other activity (% of GVA)"]].sum(axis=1).tolist()
 data["total"]=x
 data.iloc[:, 1:] = data.iloc[:, 1:].div(data['total'], axis=0).mul(100).round(2)
 
