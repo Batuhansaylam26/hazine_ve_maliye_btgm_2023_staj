@@ -12,7 +12,7 @@ from sklearn.linear_model import LinearRegression
 from plotly.subplots import make_subplots
 load_figure_template("slate")
 data=pandas.read_csv("/home/batuhansaylam/Desktop/hazine_ve_maliye_btgm_2023_staj/data/soci_econ_country_profiles.csv")
-data1=pandas.read_csv("/home/batuhansaylam/Desktop/hazine_ve_maliye_btgm_2023_staj/data/soci_econ_country_profiles.csv")
+data1=pandas.read_csv("/home/batuhansaylam/Desktop/hazine_ve_maliye_btgm_2023_staj/data/HDR21-22_Composite_indices_complete_time_series.csv")
 data=data.merge(data1[["iso3","country"]],how="inner",on="country")
 dash.register_page(__name__, path='/population')
 
@@ -68,7 +68,10 @@ m=[]
 for i in x:
     u=i.split("/")
     f.append(float(u[0]))
-    m.append(float(u[1]))
+    if len(u) ==2:
+        m.append(float(u[1]))
+    else:
+        m.append(0)
 data["Education: Primary gross enrol. ratio (f per 100 pop.)"]=f
 data["Education: Primary gross enrol. ratio (m per 100 pop.)"]=m
 
@@ -79,7 +82,10 @@ m=[]
 for i in x:
     u=i.split("/")
     f.append(float(u[0]))
-    m.append(float(u[1]))
+    if len(u) ==2:
+        m.append(float(u[1]))
+    else:
+        m.append(0)
 data["Education: Secondary gross enrol. ratio (f per 100 pop.)"]=f
 data["Education: Secondary gross enrol. ratio (m per 100 pop.)"]=m
 
@@ -89,8 +95,14 @@ f=[]
 m=[]
 for i in x:
     u=i.split("/")
-    f.append(float(u[0]))
-    m.append(float(u[1]))
+    if type(u[0]) == float:
+        f.append(float(u[0]))
+    else:
+        f.append(0)
+    if len(u) ==2 and type(u[1]) == float:
+        m.append(float(u[1]))
+    else:
+        m.append(0)
 data["Education: Tertiary gross enrol. ratio (f per 100 pop.)"]=f
 data["Education: Tertiary gross enrol. ratio (m per 100 pop.)"]=m
 
@@ -145,19 +157,11 @@ fig3.update_layout(
         domain=[0.3, 0.7]
     ),
     yaxis=dict(
-        title="Nüfus (Bin) (2017)",
-        titlefont=dict(
-            color="#1f77b4"
-        ),
-        tickfont=dict(
-            color="#1f77b4"
-        )
+        title="Nüfus (Bin) (2017)"
+
     ),
     yaxis2=dict(
         title="Doğum oranı, toplam (kadın başına canlı doğum ) ",
-        titlefont=dict(
-            color="#ff7f0e"
-        ),
         tickfont=dict(
             color="#ff7f0e"
         ),
